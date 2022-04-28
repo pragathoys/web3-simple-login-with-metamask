@@ -31,7 +31,7 @@ MetaMask injects a global API into websites visited by its users at window.ether
 Firstly, lets add the following code to detect if the user's browser has the MetaMask extension installed:
 
 ```javascript
-            async function web3_check_metamask() {
+            function web3_check_metamask() {
                 if (!window.ethereum) {
                     console.error('It seems that the MetaMask extension is not detected. Please install MetaMask first.');
                     alert('It seems that the MetaMask extension is not detected. Please install MetaMask first.');
@@ -44,8 +44,6 @@ Firstly, lets add the following code to detect if the user's browser has the Met
 ```
 
 add this code inside the HEAD tag of your HTML file.
-
-As you can see we have used the an **async function**  which is a function declared with the async keyword, and the await keyword is permitted within it. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains. 
 
 Also add the following link to trigger it for testing:
 ```html
@@ -83,6 +81,8 @@ Now, lets add the following code to initate the process:
 ```
 
 add this code inside the HEAD tag of your HTML file.
+
+As you can see we have used the an **async function**  which is a function declared with the async keyword, and the await keyword is permitted within it. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains. 
 
 Also add the following link to trigger it for testing:
 ```html
