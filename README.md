@@ -22,7 +22,7 @@ Go ahead and add the following line of code at the top of your HTML file:
 
 ```
 
-You can review the [test_v0.html](https://github.com/pragathoys/web3-login/blob/main/test_v0.html) file for the complete source code so far.
+You can review the [test_v1.html](https://github.com/pragathoys/web3-login/blob/main/test_v1.html) file for the complete source code so far.
 
 ## Step 2 - Verify if the user has the MetaMask extension installed
 
@@ -33,7 +33,7 @@ Firstly, lets add the following code to detect if the user's browser has the Met
 ```javascript
             async function web3_check_metamask() {
                 if (!window.ethereum) {
-                    console.log('It seems that the MetaMask extension is not detected. Please install MetaMask first.');
+                    console.error('It seems that the MetaMask extension is not detected. Please install MetaMask first.');
                     alert('It seems that the MetaMask extension is not detected. Please install MetaMask first.');
                     return;
                 }else{
@@ -44,17 +44,63 @@ Firstly, lets add the following code to detect if the user's browser has the Met
 
 add this code inside the HEAD tag of your HTML file.
 
+As you can see we have used the an **async function**  which is a function declared with the async keyword, and the await keyword is permitted within it. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains. 
+
 Also add the following link to trigger it for testing:
 ```html
 <a href="#!" onclick="web3_check_metamask();">detect MetaMask</a>
 ```
 
-One good way to test the output inthe absence of the extension it is to use an Incognito window with Chrome.
+One good way to test the output in the absence of the extension it is to use an Incognito window with Chrome.
 
-You can review the [test_v1.html](https://github.com/pragathoys/web3-login/blob/main/test_v1.html) file for the complete source code so far.
+You can review the [test_v2.html](https://github.com/pragathoys/web3-login/blob/main/test_v2.html) file for the complete source code so far.
+
+## Step 3 - Provide a trigger to initate the login process
+
+In this step we want to provide a basic way to the end user to click a link and verify his MetaMask account.
+
+We will simply grab some basic information from his account which we will use later.
+
+Now, lets add the following code to initate the process:
+
+```javascript
+            async function web3_metamask_login() {
+                // Check first if the user has the MetaMask installed
+                if ( web3_check_metamask() ) {
+                    console.log('Initate Login Process');
+
+                    // Get the Ethereum provider
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);                    
+                    // Get Ethereum accounts
+                    await provider.send("eth_requestAccounts", []);
+                    console.log("Connected!!"); 
+                    // Get the User Ethereum address
+                    const address = await provider.getSigner().getAddress();
+                    console.log(address);                    
+                }
+            }   
+```
+
+add this code inside the HEAD tag of your HTML file.
+
+Also add the following link to trigger it for testing:
+```html
+<a href="#!" onclick="web3_metamask_login();">Login with MetaMask</a>
+```
+
+So when you click the Login link these steps will happen:
+
+1. The MetaMask extension will popup its window and request to use your password to login
+2. Then it will request you to choose which Ethereum address (if you have more than one) you want to use to connect to this web page
+3. Finally it will ask your confirmation to connect to this web page.
+
+After the completion of these steps you will be connected to the web page. In the next step we will see how we can use a unique hash to verify that the user has already signed in.
+
+You can review the [test_v3.html](https://github.com/pragathoys/web3-login/blob/main/test_v3.html) file for the complete source code so far.
 
 ## Usefull resources
 
 * MetaMask - https://metamask.io/
 * Ethereum Provider API - https://docs.metamask.io/guide/ethereum-provider.html
 * The Ethers.js Javascript Library - https://github.com/ethers-io/ethers.js/
+* Javascript Developer Reference - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
