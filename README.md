@@ -16,9 +16,12 @@ MetaMask injects a global API into websites visited by its users at window.ether
 
 In order to accomplish this we will use the following methods of the Ethereum provider:
 
-* first we will get the Ethereum provider with: **new ethers.providers.Web3Provider(window.ethereum)**
-* then we will request the user to connect to the page with one address with: **await provider.getSigner().getAddress()**
-* and finally we will ask him to sign a hashed string with his wallet with: **await provider.getSigner().signMessage(hashed_string)**
+* first we will get the Ethereum provider with: 
+    **new ethers.providers.Web3Provider(window.ethereum)**
+* then we will request the user to connect to the page with one address with: 
+    **await provider.getSigner().getAddress()**
+* and finally we will ask him to sign a hashed string with his wallet with: 
+    **await provider.getSigner().signMessage(hashed_string)**
 
 ## Prerequisites
 
