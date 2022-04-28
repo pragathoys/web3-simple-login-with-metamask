@@ -35,9 +35,10 @@ Firstly, lets add the following code to detect if the user's browser has the Met
                 if (!window.ethereum) {
                     console.error('It seems that the MetaMask extension is not detected. Please install MetaMask first.');
                     alert('It seems that the MetaMask extension is not detected. Please install MetaMask first.');
-                    return;
+                    return false;
                 }else{
                     console.log('MetaMask extension has been detected!!');
+                    return true;
                 }
             }   
 ```
@@ -48,7 +49,7 @@ As you can see we have used the an **async function**  which is a function decla
 
 Also add the following link to trigger it for testing:
 ```html
-<a href="#!" onclick="web3_check_metamask();">detect MetaMask</a>
+<a href="#!" onclick="web3_check_metamask();">Detect MetaMask</a>
 ```
 
 One good way to test the output in the absence of the extension it is to use an Incognito window with Chrome.

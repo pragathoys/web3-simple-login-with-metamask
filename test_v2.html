@@ -9,14 +9,15 @@
                 if (!window.ethereum) {
                     console.error('It seems that the MetaMask extension is not detected. Please install MetaMask first.');
                     alert('It seems that the MetaMask extension is not detected. Please install MetaMask first.');
-                    return;
+                    return false;
                 }else{
                     console.log('MetaMask extension has been detected!!');
+                    return true;
                 }
             }            
         </script>
     </head>
     <body>
-        <p>Check first if MetaMask is installed: <a href="#!" onclick="web3_check_metamask();">detect MetaMask</a></p>
+        <p>Check first if MetaMask is installed: <a href="#!" onclick="web3_check_metamask();">Detect MetaMask</a></p>
     </body>
 </html>
