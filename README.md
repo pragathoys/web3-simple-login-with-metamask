@@ -14,7 +14,7 @@ Go ahead an add the following line at the top of your HTML file:
 
 ```
 
-You can review the test_v0.html file for the complete source code so far.
+You can review the [test_v0.html](https://github.com/pragathoys/web3-login/blob/main/test_v0.html) file for the complete source code so far.
 
 ## Usefull resources
 
