@@ -26,7 +26,12 @@ You will need a coding editor to write the code and the chrome web browser to te
 
 We assume that you have installed the MetaMask chrome extension and have already created an ethereum address.
 
-To follow this short tutorial  you need to have a basic understanding of HTML and medium javascript skills.
+To follow this short tutorial  you need to have:
+
+* a basic understanding of HTML 
+* medium javascript skills
+* good understanding of the ethereum addresses
+* having at least used once the MetaMask wallet
 
 ## Step 1 - Create an HTML page and import the relevant library
 
@@ -146,6 +151,15 @@ and we will also add these extra lines inside the _web3_metamask_login()_ functi
 
 You can review the [test_v4.html](https://github.com/pragathoys/web3-login/blob/main/test_v4.html) file for the complete source code so far.
 
+## Ideas for further improvements
+
+As you probably understand in this tutorial I showed you the basic mechanics of how to build a single click login with MetaMask. You can use these mechanics and implement a more sophisticated solution for a custom PHP application or a Laravel app or even a Ruby on Rails app!
+
+So stay tuned and watch for more tutorials to come!
+
+## Errors - Issues
+
+With the current code and logic you must expect to run into problems. For example what will happen when a user signs out from his MetaMask wallet ? Which ethereum address you will choose if the user has more than one ? 
 
 ## Usefull resources
 
